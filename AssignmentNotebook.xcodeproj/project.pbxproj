@@ -14,6 +14,7 @@
 		3841F2E823843D38009C3CDC /* AssignmentNotebook.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3841F2E623843D38009C3CDC /* AssignmentNotebook.xcdatamodeld */; };
 		3841F2EA23843D3D009C3CDC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3841F2E923843D3D009C3CDC /* Assets.xcassets */; };
 		3841F2ED23843D3D009C3CDC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3841F2EB23843D3D009C3CDC /* LaunchScreen.storyboard */; };
+		3841F2F523844171009C3CDC /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3841F2F423844171009C3CDC /* Assignment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		3841F2E923843D3D009C3CDC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3841F2EC23843D3D009C3CDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3841F2EE23843D3D009C3CDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3841F2F423844171009C3CDC /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				3841F2DF23843D38009C3CDC /* SceneDelegate.swift */,
 				3841F2E123843D38009C3CDC /* ViewController.swift */,
 				3841F2E323843D38009C3CDC /* Main.storyboard */,
+				3841F2F423844171009C3CDC /* Assignment.swift */,
 				3841F2E923843D3D009C3CDC /* Assets.xcassets */,
 				3841F2EB23843D3D009C3CDC /* LaunchScreen.storyboard */,
 				3841F2EE23843D3D009C3CDC /* Info.plist */,
@@ -144,6 +147,7 @@
 				3841F2E223843D38009C3CDC /* ViewController.swift in Sources */,
 				3841F2E823843D38009C3CDC /* AssignmentNotebook.xcdatamodeld in Sources */,
 				3841F2DE23843D38009C3CDC /* AppDelegate.swift in Sources */,
+				3841F2F523844171009C3CDC /* Assignment.swift in Sources */,
 				3841F2E023843D38009C3CDC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
