@@ -12,7 +12,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     @IBOutlet weak var myTableView: UITableView!
     
-    var list: [Assignment] = [Assignment(theName: "Math HW", theDueDate: "Tomorrow"), Assignment(theName: "Spanish HW", theDueDate: "Friday"), Assignment()]
+//    var list: [Assignment] = [Assignment(theName: "Math HW", theDueDate: "Tomorrow"), Assignment(theName: "Spanish HW", theDueDate: "Friday"), Assignment()]
+    var list: [Assignment] = []
     
     override func viewDidLoad()
     {
@@ -23,10 +24,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
         loadListFromUserDefaults()
     }
     
+    // MARK: User Defaults
     func loadListFromUserDefaults()
     {
         let defaults = UserDefaults.standard
@@ -49,19 +50,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+
+    @IBAction func editButtonTapped(_ sender: UIBarButtonItem)
+    {
+        myTableView.isEditing = !myTableView.isEditing
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-        let current = list[indexPath.row]
-        cell.textLabel?.text = current.name
-        cell.detailTextLabel?.text = current.dueDate
-        
-        return cell
-    }
-
     @IBAction func addButtonTapped(_ sender: UIBarButtonItem)
     {
         // create an alert to add an assignment to the tableview and list
@@ -99,6 +93,72 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         present(alert, animated: true, completion: nil)
     }
+    
+    // MARK: TableView Methods
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return list.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
+        let current = list[indexPath.row]
+        cell.textLabel?.text = current.name
+        cell.detailTextLabel?.text = current.dueDate
+        
+        if current.isComplete == true
+        {
+            cell.accessoryType = .checkmark
+        }
+        else
+        {
+            cell.accessoryType = .none
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete
+        {
+            list.remove(at: indexPath.row)
+            myTableView.reloadData()
+            
+            saveListToUserDefaults()
+        }
+    }
+    
+    // add checkmarks
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let assignment = list[indexPath.row]
+        assignment.isComplete = !assignment.isComplete
+        
+        saveListToUserDefaults()
+        
+        myTableView.reloadData()
+
+    }
+    
+    // reorder cells
+    
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let temp = list[sourceIndexPath.row]
+        list[sourceIndexPath.row] = list[destinationIndexPath.row]
+        list[destinationIndexPath.row] = temp
+        
+        saveListToUserDefaults()
+        myTableView.reloadData()
+        
+    }
+    
+    
     
 }
 

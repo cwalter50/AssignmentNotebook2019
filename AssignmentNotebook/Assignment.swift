@@ -12,16 +12,19 @@ class Assignment: Codable
 {
     var name: String
     var dueDate: String
+    var isComplete: Bool
     
     init()
     {
         name = "ToDo"
         dueDate = "Tomorrow"
+        isComplete = false
     }
     
     init(theName: String, theDueDate: String)
     {
         name = theName
         dueDate = theDueDate
+        isComplete = false
     }
 }

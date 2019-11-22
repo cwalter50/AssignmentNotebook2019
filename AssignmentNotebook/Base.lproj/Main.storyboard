@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" textLabel="8jB-aj-Jog" detailTextLabel="UZt-qj-vhd" rowHeight="77" style="IBUITableViewCellStyleSubtitle" id="7Ts-Or-Ykq">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="myCell" textLabel="8jB-aj-Jog" detailTextLabel="UZt-qj-vhd" rowHeight="77" style="IBUITableViewCellStyleSubtitle" id="7Ts-Or-Ykq">
                                         <rect key="frame" x="0.0" y="28" width="414" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Ts-Or-Ykq" id="zcg-JM-zA6">
@@ -56,6 +56,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Assignment Notebook" id="5cf-Qi-xCG">
+                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="edit" id="4dz-DD-U8g">
+                            <connections>
+                                <action selector="editButtonTapped:" destination="BYZ-38-t0r" id="BXz-5H-ZSP"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="X3X-R5-zRV">
                             <connections>
                                 <action selector="addButtonTapped:" destination="BYZ-38-t0r" id="qT0-Y7-X8U"/>
